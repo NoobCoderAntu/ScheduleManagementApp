@@ -1,8 +1,8 @@
 package com.anupam.springbootschedulemanagementapplication.controllers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import java.util.logging.*;
-import org.hibernate.validator.internal.util.logging.LoggerFactory;
 
 @Controller
 public class ScheduleItemController {
