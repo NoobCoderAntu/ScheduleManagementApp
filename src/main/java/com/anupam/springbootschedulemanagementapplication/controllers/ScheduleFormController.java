@@ -20,12 +20,12 @@ public class ScheduleFormController {
     private ScheduleItemRepository scheduleItemRepository;
 
     @GetMapping("/edit/{id}")
-    public String showUpdateForm (@PathVariable("id") long id, Model model) {
+    public String showUpdateForm(@PathVariable("id") long id, Model model) {
          
         ScheduleItem scheduleItem = scheduleItemRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("ScheduleItem id : "+id + " not found"));
 
         model.addAttribute("Schedule", scheduleItem);
-        return "update-Schedule-Item";
+        return "update-schedule-item";
     }
 
     @GetMapping("/delete/{id}")

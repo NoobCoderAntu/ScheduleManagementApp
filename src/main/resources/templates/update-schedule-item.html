@@ -13,7 +13,7 @@
 <body>
     <div class="container">
      <div class="col-md-6">
-         <form action="#" th:action="@{/schedule/{id}(id=${schedule.id})}" th:object="${schedule}" method="POST">
+         <form action="#" th:action="@{/schedule/{id}(id=${Schedule.id})}" th:object="${Schedule}" method="POST">
             <div class="form-group">
                 <label for="description">Description</label>
                 <input class="form-control" th:field="*{description}" id="description" placeholder="Add a Description">
@@ -27,7 +27,7 @@
             <button class="btn btn-default" type="submit">Update</button>
             <input type="hidden" th:field ="*{createdDate}"/>
             <input type="hidden" th:field ="*{modifiedDate}"/>
-            
+
          </form>
      </div>
 

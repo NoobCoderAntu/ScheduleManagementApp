@@ -26,7 +26,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="item : ${scheduleItems}" >
+                <tr th:each="item : ${ScheduleItems}" th:class="${item.complete} ? success : warning">
                     <td>
                         <div class="btn btn-group-sm" role="group">
                             <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}">Edit</a>

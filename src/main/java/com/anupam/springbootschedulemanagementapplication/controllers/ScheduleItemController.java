@@ -31,11 +31,11 @@ public class ScheduleItemController {
         logger.debug("request to get index");
         ModelAndView modelAndView = new ModelAndView("index");
 
-        modelAndView.addObject("ScheduleItems", modelAndView.findAll()); 
+        modelAndView.addObject("ScheduleItems", scheduleItemRepository.findAll()); 
         return modelAndView;
     }
 
-    @PostMapping("schedule/{id}")
+    @PostMapping("/schedule/{id}")
     public String updateScheduleItem (@PathVariable("id") long id, @Valid ScheduleItem scheduleItem, BindingResult result, Model model){
         if(result.hasErrors()){
             scheduleItem.setId(id);
@@ -45,7 +45,7 @@ public class ScheduleItemController {
         scheduleItem.setModifiedDate(Instant.now());
         scheduleItemRepository.save(scheduleItem);
         return "redirect:/";
-        
+
     }
 
 }
