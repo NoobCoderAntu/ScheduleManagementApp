@@ -23,7 +23,7 @@ public class ScheduleItemController {
         logger.debug("request to get index");
         ModelAndView modelAndView = new ModelAndView("index");
 
-        //modelAndView.addObject("ScheduleItems", modelAndView.findAll()); 
+        modelAndView.addObject("ScheduleItems", modelAndView.findAll()); 
         return modelAndView;
     }
 }
