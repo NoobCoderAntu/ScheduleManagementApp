@@ -18,6 +18,15 @@
                 <label for="description">Description</label>
                 <input class="form-control" th:field="*{description}" id="description" placeholder="Add a Description">
             </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" th:checked ="${complete} == true" th:field ="*{complete}" id = "complete" />
+                    Complete
+                </label>
+            </div>
+            <button class="btn btn-default" type="submit">Update</button>
+            <input type="hidden" th:field ="*{createdDate}"/>
+            <input type="hidden" th:field ="*{modifiedDate}"/>
             
          </form>
      </div>
