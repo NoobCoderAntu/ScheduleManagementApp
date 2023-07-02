@@ -10,13 +10,14 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="text-centre">
+        <h1 class="text-center">
             Schedule List
         </h1>
         <hr/>
+        <p th:text="|Happy ${Today}">Today</p>
         <table class="table table-bordered table-striped" >
             <thead>
-                <tr>
+                <tr class="text-center">
                     <th>Actions</th>
                     <th>Id</th>
                     <th>Description</th>
@@ -33,15 +34,17 @@
                             <a class="btn btn-danger" th:href="@{/delete/{id}(id=${item.id})}">Delete</a>
                         </div>
                     </td>
-                    <td th:text="${item.id}">item_id</td>
-                    <td th:text="${item.description}">item_description</td>
-                    <td th:text="${item.complete}">item_complete</td>
-                    <td th:text="${item.createdDate}">item_created_date</td>
-                    <td th:text="${item.modifiedDate}">item_modified_date</td>
+                    <td class="text-center" th:text="${item.id}">item_id</td>
+                    <td class="text-center" th:text="${item.description}">item_description</td>
+                    <td class="text-center" th:text="${item.complete}">item_complete</td>
+                    <td class="text-center" th:text="${item.createdDate}">item_created_date</td>
+                    <td class="text-center" th:text="${item.modifiedDate}">item_modified_date</td>
                 </tr>
             </tbody>
         </table>
-
+        <p>
+            <a class="btn btn-success" href="/crete-schedule">Add a Schedule!</a>
+        </p>
     </div>
 
     <script th:src="@{/webjars/jquery/3.6.4/jquery.min.js}"></script>

@@ -18,9 +18,14 @@ public class ScheduleFormController {
 
     @Autowired
     private ScheduleItemRepository scheduleItemRepository;
+    
+    @GetMapping("/crete-schedule")
+    public String showCreteForm (ScheduleItem scheduleItem) {
+        return "add-schedule-item";
+    }
 
     @GetMapping("/edit/{id}")
-    public String showUpdateForm(@PathVariable("id") long id, Model model) {
+    public String showUpdateForm (@PathVariable("id") long id, Model model) {
          
         ScheduleItem scheduleItem = scheduleItemRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("ScheduleItem id : "+id + " not found"));
 
