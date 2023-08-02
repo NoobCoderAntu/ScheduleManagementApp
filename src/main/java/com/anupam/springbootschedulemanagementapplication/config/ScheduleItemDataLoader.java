@@ -25,8 +25,8 @@ public class ScheduleItemDataLoader implements CommandLineRunner {
 
     private void loadSeedData (){
         if(scheduleItemRepository.count() == 0){
-            ScheduleItem scheduleItem1 = new ScheduleItem("get the milk");
-            ScheduleItem scheduleItem2 = new ScheduleItem("rake the leave");
+            ScheduleItem scheduleItem1 = new ScheduleItem("Drink the Coffie");
+            ScheduleItem scheduleItem2 = new ScheduleItem("Take the Breakfast!");
 
             scheduleItemRepository.save(scheduleItem1);
             scheduleItemRepository.save(scheduleItem2);

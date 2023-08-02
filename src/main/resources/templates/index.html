@@ -21,29 +21,34 @@
                     <th>Actions</th>
                     <th>Id</th>
                     <th>Description</th>
-                    <th>Complete</th>
+                    <th>Is Complete</th>
                     <th>Created Date</th>
                     <th>Modified Date</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="item : ${ScheduleItems}" th:class="${item.complete} ? success : warning">
-                    <td>
+                <tr th:each="item : ${ScheduleItems}" th:class="${item.complete} ? 'alert alert-success' : 'alert alert-warning'">
+                    <td class="text-center">
                         <div class="btn btn-group-sm" role="group">
-                            <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}">Edit</a>
-                            <a class="btn btn-danger" th:href="@{/delete/{id}(id=${item.id})}">Delete</a>
+                            <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}">
+                                <i class="bi bi-pencil-fill"></i> Edit </a>
+                            <a class="btn btn-danger" th:href="@{/delete/{id}(id=${item.id})}">
+                                <i class="bi bi-trash-fill"></i> Delete </a>
                         </div>
                     </td>
                     <td class="text-center" th:text="${item.id}">item_id</td>
                     <td class="text-center" th:text="${item.description}">item_description</td>
-                    <td class="text-center" th:text="${item.complete}">item_complete</td>
+                    <td class="text-center" >
+                        <span th:if="${item.complete} == true" th:text="Yes"></span>
+                        <span th:unless="${item.complete} == true" th:text="No"></span>
+                    </td>
                     <td class="text-center" th:text="${item.createdDate}">item_created_date</td>
                     <td class="text-center" th:text="${item.modifiedDate}">item_modified_date</td>
                 </tr>
             </tbody>
         </table>
-        <p>
-            <a class="btn btn-success" href="/crete-schedule">Add a Schedule!</a>
+        <p class="text-center">
+            <a class="btn btn-success" th:href="@{/create-schedule}">Add a Schedule!</a>
         </p>
     </div>
 

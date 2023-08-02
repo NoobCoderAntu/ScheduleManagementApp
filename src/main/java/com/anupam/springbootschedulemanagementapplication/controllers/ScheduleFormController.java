@@ -19,7 +19,7 @@ public class ScheduleFormController {
     @Autowired
     private ScheduleItemRepository scheduleItemRepository;
     
-    @GetMapping("/crete-schedule")
+    @GetMapping("/create-schedule")
     public String showCreteForm (ScheduleItem scheduleItem) {
         return "add-schedule-item";
     }
