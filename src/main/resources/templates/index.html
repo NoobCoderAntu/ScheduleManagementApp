@@ -44,7 +44,7 @@
                     <th>Description</th>
                     <th>Is Complete</th>
                     <th>Created Date</th>
-                    <th>Modified Date</th>
+                    <th>Schedule Date</th>
                 </tr>
             </thead>
             <tbody>
@@ -65,7 +65,7 @@
                         <span th:unless="${item.complete} == true" th:text="No"></span>
                     </td>
                     <td class="text-center" th:text="${item.createdDate}">item_created_date</td>
-                    <td class="text-center" th:text="${item.modifiedDate}">item_modified_date</td>
+                    <td class="text-center" th:text="${item.scheduleDate}">item_schedule_date</td>
                 </tr>
             </tbody>
         </table>

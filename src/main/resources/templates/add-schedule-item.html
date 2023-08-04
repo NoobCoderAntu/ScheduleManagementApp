@@ -57,17 +57,15 @@
                     <label style="font-size: medium;" for="description">Description</label>
                     <input class="form-control" type="text" th:field="*{description}" id="description"
                         placeholder="Description" />
-                    <div style="color: red; font-size: small;"> 
+                    <div style="color: red; font-size: small;">
                         <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
                     </div>
-
-                    <!-- <label style="font-size: medium;" for="createdDate">Enter date</label>
-                    <input class="form-control" type="Date" th:field="*{createdDate}" id="createdDate"
-                        placeholder="Date" /> -->
-
+                    <label style="font-size: medium;" for="scheduleDate">Date</label>
+                    <input class="form-control" type="date" th:field="*{scheduleDate}" id="scheduleDate"
+                         />
                 </div>
 
-                <button  class = "mysubmitbutton" type="submit">Add Schedule!</button>
+                <button class="mysubmitbutton" type="submit">Add Schedule!</button>
             </form>
         </div>
 

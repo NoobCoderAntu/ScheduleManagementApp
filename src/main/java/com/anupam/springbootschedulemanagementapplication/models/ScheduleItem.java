@@ -1,7 +1,9 @@
 package com.anupam.springbootschedulemanagementapplication.models;
 
+import java.sql.Date;
 import java.time.Instant;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -40,11 +42,22 @@ public class ScheduleItem {
     @Setter
     private Instant modifiedDate;
 
+     
+    @Column(name = "scheduleDate")
+    @Getter
+    @Setter
+    private Date scheduleDate;
+    
+    @Column(name = "userId")
+    @Getter
+    @Setter
+    private Integer userId;
+
     public ScheduleItem () {
 
     }
 
-    public ScheduleItem ( String description ) {
+    public ScheduleItem ( String description) {
 
         this.description = description;
         this.complete = false;
@@ -54,8 +67,8 @@ public class ScheduleItem {
     
     @Override
     public String toString () {
-        return String.format("ScheduleItem{id = %d, description = '%s', complete = '%s' ,createdDate = '%s', modifiedDate = '%s' ",
-        id, description, complete, createdDate, modifiedDate );
+        return String.format("ScheduleItem{ id = %d, description = '%s', complete = '%s' ,createdDate = '%s', modifiedDate = '%s' ",
+         id, description, complete, createdDate, modifiedDate );
     }
     
     

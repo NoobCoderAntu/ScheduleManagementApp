@@ -2,7 +2,6 @@ package com.anupam.springbootschedulemanagementapplication.controllers;
 
 import java.time.Instant;
 import java.time.ZoneId;
-import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -43,7 +42,6 @@ public class ScheduleItemController {
         if(result.hasErrors()){
             return "add-schedule-item";
         }
-        // Date dt = scheduleItem.getCreatedDate();
 
         scheduleItem.setCreatedDate(Instant.now());
         scheduleItem.setModifiedDate(Instant.now());
