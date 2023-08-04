@@ -5,24 +5,72 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/3.4.1/css/bootstrap.min.css} " />
+    <style>
+        .grid-container {
+            display: flex;
+            justify-content: center;
+            background-color: #fafafc;
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 30%;
+            border: 1px solid rgba(0, 0, 0, 0.8);
+            border-radius: 5%;
+            box-shadow: 10px 10px 5px lightblue;
+            padding: 30px;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 2%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: start;
+            height: 50px;
+            background: #6cdc2b;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: larger;
+            padding-bottom: 1%;
+        }
+
+        .mysubmitbutton {
+            border-radius: 20%;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="col-md-6">
-            <h1>Add a new Todo Item</h1>
+    <div class="navbar">
+        <p style="padding-left: 1%;">
+            <a style="text-decoration:none" th:href="@{/}">Home</a>
+        </p>
+        <p style="padding-left: 90%;">Log out</p>
+    </div>
+    <div class="grid-container">
+
+        <div class="grid-item">
+            <h4>New Schedule</h4>
             <form action="#" th:action="@{/schedule}" th:object="${scheduleItem}" method="POST">
                 <div class="form-group">
-                    <label for="description">Description</label>
+                    <label style="font-size: medium;" for="description">Description</label>
                     <input class="form-control" type="text" th:field="*{description}" id="description"
-                        placeholder="Description"/>
-                    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+                        placeholder="Description" />
+                    <div style="color: red; font-size: small;"> 
+                        <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+                    </div>
+
+                    <!-- <label style="font-size: medium;" for="createdDate">Enter date</label>
+                    <input class="form-control" type="Date" th:field="*{createdDate}" id="createdDate"
+                        placeholder="Date" /> -->
+
                 </div>
 
-                <button type="submit" class="btn btn-success">Add Todo!</button>
+                <button  class = "mysubmitbutton" type="submit">Add Schedule!</button>
             </form>
         </div>
+
     </div>
 </body>
 

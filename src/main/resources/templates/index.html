@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" >
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA Compatible" content="IE = edge">
@@ -7,15 +8,35 @@
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css} " />
 
     <title>Schedule-Management-App</title>
+
+    <style>
+
+        .navbar {
+            display: flex;
+            justify-content:start;
+            height: 50px;
+            background: #83dfe2;
+            font-family: 'Times New Roman', Times, serif;
+            font-size:larger;
+            padding-bottom: 1%;
+        }
+        </style>
 </head>
+
 <body>
+    <div class="navbar">
+        <p style="padding-left: 1%;">
+            <a style="text-decoration:none" th:href="@{/create-schedule}">New Schedule</a>
+        </p>
+        <p style="padding-left: 85%;">Log out</p>
+    </div>
     <div class="container">
         <h1 class="text-center">
             Schedule List
         </h1>
-        <hr/>
+        <hr />
         <p th:text="|Happy ${Today}">Today</p>
-        <table class="table table-bordered table-striped" >
+        <table class="table table-bordered table-striped">
             <thead>
                 <tr class="text-center">
                     <th>Actions</th>
@@ -27,7 +48,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="item : ${ScheduleItems}" th:class="${item.complete} ? 'alert alert-success' : 'alert alert-warning'">
+                <tr th:each="item : ${ScheduleItems}"
+                    th:class="${item.complete} ? 'alert alert-success' : 'alert alert-warning'">
                     <td class="text-center">
                         <div class="btn btn-group-sm" role="group">
                             <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}">
@@ -38,7 +60,7 @@
                     </td>
                     <td class="text-center" th:text="${item.id}">item_id</td>
                     <td class="text-center" th:text="${item.description}">item_description</td>
-                    <td class="text-center" >
+                    <td class="text-center">
                         <span th:if="${item.complete} == true" th:text="Yes"></span>
                         <span th:unless="${item.complete} == true" th:text="No"></span>
                     </td>
@@ -55,4 +77,5 @@
     <script th:src="@{/webjars/jquery/3.6.4/jquery.min.js}"></script>
     <script th:src="@{/webjars/bootstrap/5.3.0/js/bootstrap.min.js}"></script>
 </body>
+
 </html>

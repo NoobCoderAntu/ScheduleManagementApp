@@ -8,11 +8,50 @@
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.0/css/bootstrap.min.css} " />
 
     <title>Schedule-Management-App</title>
+    <style>
+        .grid-container {
+          display: flex;
+          justify-content: center;
+          background-color: #ffffff;
+          padding: 10px;
+        }
+        .grid-item {
+          background-color: rgba(255, 255, 255, 0.8);
+          width: 30%;
+          border: 1px solid rgba(0, 0, 0, 0.8);
+          border-radius: 5%;
+          box-shadow: 10px 10px 5px lightblue;
+          padding: 30px;
+          font-size: 30px;
+          text-align: center;
+          margin-top: 2%;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content:start;
+            height: 50px;
+            background: #902c0b;
+            font-family: 'Times New Roman', Times, serif;
+            font-size:larger;
+            padding-bottom: 1%;
+        }
+        </style>
 </head>
 
 <body>
-    <div class="container">
-     <div class="col-md-6">
+    <div class="navbar">
+        <p style="padding-left: 1%;">
+            <a style="text-decoration:none" th:href="@{/}">Home</a>
+        </p>
+        <p style="padding-left: 5%;">
+            <a style="text-decoration:none" th:href="@{/create-schedule}">New Schedule</a>
+
+        </p>
+        <p style="padding-left: 77%;">Log out</p>
+    </div>
+    <div class="grid-container">
+     <div class="grid-item">
          <form action="#" th:action="@{/schedule/{id}(id=${Schedule.id})}" th:object="${Schedule}" method="POST">
             <div class="form-group">
                 <label for="description">Description</label>
@@ -24,7 +63,7 @@
                     Complete
                 </label>
             </div>
-            <button class="btn btn-default" type="submit">Update</button>
+            <button type="submit">Update</button>
             <input type="hidden" th:field ="*{createdDate}"/>
             <input type="hidden" th:field ="*{modifiedDate}"/>
 
