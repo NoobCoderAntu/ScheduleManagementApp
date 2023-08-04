@@ -14,7 +14,7 @@ import com.anupam.springbootschedulemanagementapplication.repositories.ScheduleI
 @Controller
 public class ScheduleFormController {
     
-    private final Logger logger = LoggerFactory.getLogger(ScheduleFormController.class);
+    // private final Logger logger = LoggerFactory.getLogger(ScheduleFormController.class);
 
     @Autowired
     private ScheduleItemRepository scheduleItemRepository;
